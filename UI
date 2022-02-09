@@ -1533,16 +1533,16 @@ function Library:Initiate()
     UIListLayout_99.Padding = UDim.new(0.0199999996, 0)
 
 
-      TextBox.Parent = Categories
-      TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
-      TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-      TextBox.Position = UDim2.new(0.5, 0, 0.259999999, 0)
-      TextBox.Size = UDim2.new(0.800000012, 0, 0.0399999991, 0)
-      TextBox.Font = Enum.Font.GothamBold
-      TextBox.Text = "Search..."
-      TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-      TextBox.TextSize = 12.000
-    local OldParents={};
+    -- TextBox.Parent = Categories
+    -- TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
+    -- TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    -- TextBox.Position = UDim2.new(0.5, 0, 0.259999999, 0)
+    -- TextBox.Size = UDim2.new(0.800000012, 0, 0.0399999991, 0)
+    -- TextBox.Font = Enum.Font.GothamBold
+    -- TextBox.Text = "Search..."
+    -- TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    -- TextBox.TextSize = 12.000
+    -- local OldParents={};
     local function Close()
         if TextBox.Text==''then 
             OldParents={};
@@ -1555,23 +1555,23 @@ function Library:Initiate()
         end;
     end;
     local function Search()
-       if TextBox.Text==''then return end
-           for i,v in next,game.CoreGui.Ancestor.MainFrame.Sections:GetDescendants()do 
-               if v:IsA'TextButton'or v:IsA'TextLabel'and tostring(v.Parent)~='Frame'then 
-                   if v.Text~=' 'and v.Text~=''and v.Text~='+'and v.Text~='-'then
-                       if string.find(v.Text:lower(),TextBox.Text:lower())then
-                           CurrentTab.Visible=false;
-                           v.Visible=true;
-                           SearchFrame.Visible=true;
-                           OldParents[v.Parent.Parent]=v.Parent;
-                           v.Parent.Parent=Frame_2;
-                       else
-                           v.Visible=false;
-                           SearchFrame.Visible=false;
-                        end;
-                    end;
-                end;
-            end;
+        -- if TextBox.Text==''then return end
+        -- for i,v in next,game.CoreGui.Ancestor.MainFrame.Sections:GetDescendants()do 
+        --     if v:IsA'TextButton'or v:IsA'TextLabel'and tostring(v.Parent)~='Frame'then 
+        --         if v.Text~=' 'and v.Text~=''and v.Text~='+'and v.Text~='-'then
+        --             if string.find(v.Text:lower(),TextBox.Text:lower())then
+        --                 CurrentTab.Visible=false;
+        --                 v.Visible=true;
+        --                 SearchFrame.Visible=true;
+        --                 OldParents[v.Parent.Parent]=v.Parent;
+        --                 v.Parent.Parent=Frame_2;
+        --             else
+        --                 v.Visible=false;
+        --                 SearchFrame.Visible=false;
+        --             end;
+        --         end;
+        --     end;
+        -- end;
     end;
     TextBox:GetPropertyChangedSignal'Text':Connect(Search)
     TextBox.FocusLost:Connect(Close)

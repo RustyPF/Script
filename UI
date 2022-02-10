@@ -265,7 +265,7 @@ function Library:Initiate()
                     Title.TextColor3 = Color3.fromRGB(255, 255, 255)
                     Title.TextSize = 14.000
                     Title.TextXAlignment = Enum.TextXAlignment.Left
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,9)
                 end;
                 function Elements:CreateButton(Name,Callback,Animated,HelpToggled,HelpInfo)
@@ -311,7 +311,7 @@ function Library:Initiate()
                     Title_4.Text = Name;
                     Title_4.TextColor3 = Color3.fromRGB(255, 255, 255)
                     Title_4.TextSize = 14.000
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,51)
                     MainButton_3.MouseButton1Click:Connect(function()
                         if Animated then 
@@ -434,7 +434,7 @@ function Library:Initiate()
                     Title_4.Text = Name;
                     Title_4.TextColor3 = Color3.fromRGB(255, 255, 255)
                     Title_4.TextSize = 14.000
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,51)
                     function LabelTable:UpdateText(Text)
                         Title_4.Text = Text;
@@ -610,7 +610,7 @@ function Library:Initiate()
                     MainButton_2.MouseButton1Click:Connect(func);
                     Toggle.MouseButton1Click:Connect(func);
                     Title_3.MouseButton1Click:Connect(func)
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,51)
                     return ToggleTable
                 end;
@@ -775,7 +775,7 @@ function Library:Initiate()
                         end;
                     end);
                     UICorner_14.Parent = Input_2
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,51)
                 end;
 
@@ -912,7 +912,7 @@ function Library:Initiate()
                     end;
 
                     UICorner_16.Parent = Input_3
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,51)
                 end;
                 
@@ -1168,7 +1168,7 @@ function Library:Initiate()
                     MainButton.MouseButton1Click:Connect(ToggleVis);
                     Input:GetPropertyChangedSignal'Text':Connect(TextChanged)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,56)
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                 end;
                 function Elements:CreateSlider(Name,CallBack,Min,Max,Default,HelpToggled,HelpInfo,Header)
                     local SliderTable={};
@@ -1377,7 +1377,7 @@ function Library:Initiate()
                     UICorner_6.Parent = MainSlider
 
                     UICorner_7.Parent = Background
-                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,35)
+                    Sections_2.Size=Sections_2.Size+UDim2.new(0,0,0,38)
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,51)
 
                     local LastSaved= Min or '100';

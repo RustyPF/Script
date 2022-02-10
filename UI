@@ -499,7 +499,7 @@ function Library:Initiate()
                     MainButton_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
                     MainButton_2.BorderSizePixel = 0
                     MainButton_2.Position = UDim2.new(0.8957110195, 0, 0.5, 0)
-                    MainButton_2.Size = UDim2.new(0.050957229, 0, 0.637499988, 0)
+                    MainButton_2.Size = UDim2.new(0.040957229, 0, 0.637499988, 0)
                     MainButton_2.AutoButtonColor = false
                     MainButton_2.Font = Enum.Font.SourceSans
                     MainButton_2.Text = ""
@@ -574,6 +574,7 @@ function Library:Initiate()
                     end;
 
                     UICorner_10.Parent = MainButton_2
+                    UICorner_10.CornerRadius = 10000000
                     if Toggled then 
                         TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position =  UDim2.new(0.929110195, 0, 0.5, 0)}):Play()
                     end;
@@ -1531,7 +1532,17 @@ function Library:Initiate()
     UIListLayout_99.Parent = SearchFrame
     UIListLayout_99.SortOrder = Enum.SortOrder.LayoutOrder
     UIListLayout_99.Padding = UDim.new(0.0199999996, 0)
-    
+
+
+    -- TextBox.Parent = Categories
+    -- TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
+    -- TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    -- TextBox.Position = UDim2.new(0.5, 0, 0.259999999, 0)
+    -- TextBox.Size = UDim2.new(0.800000012, 0, 0.0399999991, 0)
+    -- TextBox.Font = Enum.Font.GothamBold
+    -- TextBox.Text = "Search..."
+    -- TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    -- TextBox.TextSize = 12.000
     -- local OldParents={};
     local function Close()
         if TextBox.Text==''then 
@@ -1544,7 +1555,27 @@ function Library:Initiate()
             return;
         end;
     end;
-
+    local function Search()
+        -- if TextBox.Text==''then return end
+        -- for i,v in next,game.CoreGui.Ancestor.MainFrame.Sections:GetDescendants()do 
+        --     if v:IsA'TextButton'or v:IsA'TextLabel'and tostring(v.Parent)~='Frame'then 
+        --         if v.Text~=' 'and v.Text~=''and v.Text~='+'and v.Text~='-'then
+        --             if string.find(v.Text:lower(),TextBox.Text:lower())then
+        --                 CurrentTab.Visible=false;
+        --                 v.Visible=true;
+        --                 SearchFrame.Visible=true;
+        --                 OldParents[v.Parent.Parent]=v.Parent;
+        --                 v.Parent.Parent=Frame_2;
+        --             else
+        --                 v.Visible=false;
+        --                 SearchFrame.Visible=false;
+        --             end;
+        --         end;
+        --     end;
+        -- end;
+    end;
+    TextBox:GetPropertyChangedSignal'Text':Connect(Search)
+    TextBox.FocusLost:Connect(Close)
 
     UICorner.Parent = TextBox
 

@@ -574,7 +574,7 @@ function Library:Initiate()
                     end;
 
                     UICorner_10.Parent = MainButton_2
-                    UICorner_10.CornerRadius = 10000000
+                    UICorner_10.CornerRadius = UDim2.new(10000000)
                     if Toggled then 
                         TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position =  UDim2.new(0.929110195, 0, 0.5, 0)}):Play()
                     end;

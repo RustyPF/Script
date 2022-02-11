@@ -269,6 +269,7 @@ function Library:Initiate()
                     ScrollingFrame_2.CanvasSize=ScrollingFrame_2.CanvasSize+UDim2.new(0,0,0,9)
                 end;
                 function Elements:CreateButton(Name,Callback,Animated,HelpToggled,HelpInfo)
+                    local ButtonTable={}
                     local Button = Instance.new("Frame")
                     local UICorner_11 = Instance.new("UICorner")
                     local MainButton_3 = Instance.new("TextButton")
@@ -297,6 +298,10 @@ function Library:Initiate()
                     MainButton_3.Text = ""
                     MainButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
                     MainButton_3.TextSize = 14.000
+
+                    function ButtonTable:UpdateHeader(Text)
+                        Title_4.Text = Text;
+                    end;
 
                     UICorner_12.Parent = MainButton_3
 
@@ -360,7 +365,7 @@ function Library:Initiate()
                         Help.BackgroundTransparency = 1.000
                         Help.BorderColor3 = Color3.fromRGB(27, 42, 53)
                         Help.BorderSizePixel = 0
-                        Help.Position = UDim2.new(0.955999988, 0, 0.349999994, 0)
+                        Help.Position = UDim2.new(0.945999988, 0, 0.349999994, 0)
                         Help.Size = UDim2.new(0.0458574817, 0, 0.300000012, 0)
                         Help.AutoButtonColor = false
                         Help.Font = Enum.Font.GothamBold
@@ -390,6 +395,7 @@ function Library:Initiate()
                             end;
                         end)
                     end;
+                    return ButtonTable;
                 end;
                 function Elements:CreateLabel(Name)
                     local LabelTable={};
@@ -479,6 +485,7 @@ function Library:Initiate()
                     MainButton.TextSize = 14.000
 
                     UICorner_9.Parent = MainButton
+                    UICorner_9.CornerRadius=UDim.new(0,12)
 
                     Title_3.Name = "Title"
                     Title_3.Parent = Toggle
@@ -499,7 +506,7 @@ function Library:Initiate()
                     MainButton_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
                     MainButton_2.BorderSizePixel = 0
                     MainButton_2.Position = UDim2.new(0.8957110195, 0, 0.5, 0)
-                    MainButton_2.Size = UDim2.new(0.050957229, 0, 0.637499988, 0)
+                    MainButton_2.Size = UDim2.new(0.050957229, 0, 0.617499988, 0)
                     MainButton_2.AutoButtonColor = false
                     MainButton_2.Font = Enum.Font.SourceSans
                     MainButton_2.Text = ""
@@ -567,6 +574,7 @@ function Library:Initiate()
                                 TweenService:Create(ScrollingFrame_2,TweenInfo.new(0.3),{CanvasSize=ScrollingFrame_2.CanvasSize-UDim2.new(0,0,0,30)}):Play();
                                 TweenService:Create(HelpFrame,TweenInfo.new(0.3),{Size=UDim2.new(0,0,0,0)}):Play();
                                 TweenService:Create(Sections_2,TweenInfo.new(0.3),{Size=Sections_2.Size-UDim2.new(0,0,0,27)}):Play();
+                                
                                 task.wait(.3)
                                 HelpFrame.Visible=false
                             end;
@@ -574,8 +582,10 @@ function Library:Initiate()
                     end;
 
                     UICorner_10.Parent = MainButton_2
+                    UICorner_10.CornerRadius=UDim.new(0,12)
                     if Toggled then 
-                        TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position =  UDim2.new(0.929110195, 0, 0.5, 0)}):Play()
+                        MainButton.BackgroundColor3=Color3.fromRGB(0,122,255)
+                        TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position =  UDim2.new(0.93810195, 0, 0.5, 0)}):Play()
                     end;
                     if Callback then 
                         Callback(Toggled);
@@ -583,8 +593,10 @@ function Library:Initiate()
                     local function func(Forced)
                         Toggled=not Toggled;
                         if Toggled then 
-                            TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position = UDim2.new(0.929110195, 0, 0.5, 0)}):Play()
+                            MainButton.BackgroundColor3=Color3.fromRGB(0,122,255)
+                            TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position = UDim2.new(0.93810195, 0, 0.5, 0)}):Play()
                         else
+                            MainButton.BackgroundColor3=Color3.fromRGB(15,15,15)
                             TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position = UDim2.new(0.8957110195, 0, 0.5, 0)}):Play()
                         end;
                         if Refresh then 
@@ -597,8 +609,10 @@ function Library:Initiate()
                     function ToggleTable:Toggle()
                         Toggled=not Toggled;
                         if Toggled then 
-                            TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position = UDim2.new(0.929110195, 0, 0.5, 0)}):Play()
+                            MainButton.BackgroundColor3=Color3.fromRGB(0,122,255)
+                            TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position = UDim2.new(0.93810195, 0, 0.5, 0)}):Play()
                         else
+                            MainButton.BackgroundColor3=Color3.fromRGB(15,15,15)
                             TweenService:Create(MainButton_2, TweenInfo.new(0.1), {Position = UDim2.new(0.8957110195, 0, 0.5, 0)}):Play()
                         end;Callback(Toggled)
                     end;
@@ -1152,6 +1166,7 @@ function Library:Initiate()
                             ToggleVis();
                             return
                         end;
+                        TweenService:Create(ScrollingFrame2,TweenInfo.new(0.1),{CanvasPosition=Vector2.new(0,0)}):Play();
                         local Text=Input.Text:lower();
                         local list=Frame_3:GetChildren()
                         for i,v in next,list do 
@@ -1485,7 +1500,7 @@ function Library:Initiate()
     ImageButton_2.Position = UDim2.new(0, 0, 0,-30)
     ImageButton_2.Size = UDim2.new(1, 0, 0.4, 0)
     ImageButton_2.AutoButtonColor = false
-    ImageButton_2.Image = "rbxassetid://8763218316"
+    ImageButton_2.Image = "rbxassetid://8788461099"
     ImageButton_2.ImageColor3 = Color3.fromRGB(0, 122, 255)
 
 
